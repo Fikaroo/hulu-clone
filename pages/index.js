@@ -1,5 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
+import { BASE_URL } from "../.config";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Results from "../components/Results";
@@ -27,7 +28,7 @@ export const getServerSideProps = async (context) => {
 
   const request = await axios
     .get(
-      `https://api.themoviedb.org/3${
+      `${BASE_URL}${
         requests[genre]?.url || requests.fetchTrending.url
       }`
     )
